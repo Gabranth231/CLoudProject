@@ -2,15 +2,15 @@ import classes from './HomePageScreen.module.css';
 import { useState } from 'react';
 
 function HomePageScreen() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [widgetCount, setWidget] = useState(0);
 
   return (
     <div className={classes.mainDiv}>
       <div className={classes.widgetcontainer}>
-        <div>Hello</div>
+        <div>Widget count is {widgetCount}</div>
         <div className={classes.inputcontainer}>
-          <div>1</div>
-          <div>2</div>
+          <div onClick={() => setWidget(widgetCount + 1)}>Add Widget</div>
+          <div onClick ={() => setWidget(widgetCount - 1)}>Delete Widget</div>
         </div>
       </div>
     </div>
