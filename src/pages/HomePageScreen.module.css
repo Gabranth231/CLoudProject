@@ -3,3 +3,31 @@
   padding: 0;
   border: 0;
 }
+.widgetcontainer {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color:lightgray;
+}
+.widgetcontainer > div {
+  background-color: #f1f1f1;
+  width: 95%;
+  margin: 2.5%;
+  line-height: 200px;
+  font-size: 30px;
+  border-style: solid;
+  border-color: blue;
+}
+.inputcontainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.inputcontainer > div{
+  width: 50%;
+  border-style: solid;
+  border-color: blue;
+}
+

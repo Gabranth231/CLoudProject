@@ -6,7 +6,13 @@ function HomePageScreen() {
 
   return (
     <div className={classes.mainDiv}>
-      <h1>Home Page</h1>
+      <div className={classes.widgetcontainer}>
+        <div>Hello</div>
+        <div className={classes.inputcontainer}>
+          <div>1</div>
+          <div>2</div>
+        </div>
+      </div>
     </div>
   );
 }
