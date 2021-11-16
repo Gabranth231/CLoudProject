@@ -1,0 +1,23 @@
+.navBar {
+    background-color: dodgerblue;
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+  }
+  
+  .navBar > div {
+    padding: 10px;
+    width: max-content;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .navBar > div a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+  }
+  
+  .navBar > div:hover {
+    background-color: rgb(23, 109, 196);
+  }
