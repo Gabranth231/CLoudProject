@@ -3,16 +3,24 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
     return (
-        <nav>
-            <ul className={classes.navBar}>
+        <header className={classes.navBar}>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">Home Screen</Link>
+                    </li>
+                    <li>
+                        <Link to="/NewPage">New Page</Link>
+                    </li>
+                </ul>
+            </nav>
+            <Link className={classes.counter} to="/CartPage">
+                <img src="https://www.iconpacks.net/icons/2/free-shopping-cart-icon-3045-thumb.png" alt=""></img>
                 <div>
-                    <Link to="/">Home Screen</Link>
+                    0
                 </div>
-                <div>
-                    <Link to="/NewPage">New Page</Link>
-                </div>
-            </ul>
-        </nav>
+            </Link>
+        </header>
     );
 }
 export default NavBar;

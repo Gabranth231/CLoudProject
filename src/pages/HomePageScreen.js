@@ -18,7 +18,7 @@ function HomePageScreen() {
         </div>
 
         <div>
-         <div onClick ={() => checkCount()}>Delete Widget</div>
+        <div onClick ={() => checkCount()}>Delete Widget</div>
         </div>
       </div>
     </div>
