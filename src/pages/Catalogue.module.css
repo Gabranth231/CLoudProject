@@ -32,11 +32,11 @@
     border-radius: 10px;
 }
 .itemBox > h3{
-    
-    border: 2px solid rgb(160, 160, 160);
-    border-radius: 10px;
+    color: lightgray;
 }
 .itemBox > div{
+    user-select: none;
+    color: lightgray;
     margin-top: 2.5%;
     border: 2px solid rgb(160, 160, 160);
     border-radius: 10px;
@@ -51,8 +51,36 @@
 .choiceBox > div{
     border: 2px solid rgb(160, 160, 160);
     border-radius: 10px;
+    display: inline-block;
+    cursor: pointer;
     text-align: left;
     margin-top: auto;
     margin-bottom: auto;
     padding-left: 10px;
 }
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #4bdee9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+.dropdownContent > div{
+    color: black;
+    padding: 6px 8px;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdownContent {
+    display: block;
+}
+.dropdownContent > div:hover{
+    background: dodgerblue;
+}
+  
