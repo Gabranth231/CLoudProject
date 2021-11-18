@@ -1,0 +1,7 @@
+.backgroundDiv {
+    background-color: rgba(30,30,30,255);
+    display:flex;
+    flex-flow: column;
+    overflow: auto;
+    height: 100vh;
+  }

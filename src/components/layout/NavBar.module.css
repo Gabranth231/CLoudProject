@@ -1,23 +1,58 @@
 .navBar {
-    background-color: dodgerblue;
-    display: flex;
-    justify-content: left;
-    flex-direction: row;
-  }
-  
-  .navBar > div {
-    padding: 10px;
-    width: max-content;
-    user-select: none;
-    cursor: pointer;
-  }
+  background-color: dodgerblue;
+  height: 3rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
-  .navBar > div a {
-    color: #fff;
-    font-size: 1.2rem;
-    text-decoration: none;
-  }
-  
-  .navBar > div:hover {
-    background-color: rgb(23, 109, 196);
-  }
+.navBar ul {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  margin-left: 20px;
+}
+
+.navBar li {
+  height: 3rem;
+  width: max-content;
+  padding: 0.6rem;
+}
+
+.navBar a {
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.navBar li:hover {
+  background-color: rgb(23, 109, 196);
+}
+
+.counter {
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  height: 3rem;
+  margin-right: 20px;
+  align-items: baseline;
+}
+
+.counter > img {
+  height: 2rem;
+  width: 2rem;
+  margin: auto;
+}
+
+.counter > div {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: auto;
+}
