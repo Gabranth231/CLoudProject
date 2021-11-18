@@ -1,7 +1,7 @@
-import classes from "./Catalogue.module.css"
+import classes from "./CataloguePage.module.css"
 import { useState } from "react";
 
-function Catalogue() {
+function CataloguePage() {
     const [itemChoice, setItem] = useState("Select Clothing Item");
     const [size, setSize] = useState("Select Size");
     const [colour, setColour] = useState("Select Colour");
@@ -57,4 +57,4 @@ function Catalogue() {
         </div>
     )
 }
-export default Catalogue;
+export default CataloguePage;
