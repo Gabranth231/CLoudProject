@@ -1,0 +1,58 @@
+.mainDiv{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;  
+
+}
+.apparelSelect{
+    display: flex;
+    width: 20%;
+    flex-direction: column;
+    border: 2px solid rgb(160, 160, 160);
+    border-radius: 10px;
+    align-items: center;
+    align-content: space-around;   
+}
+.apparelSelect > div{
+    margin: auto;
+    border: 2px solid rgb(160, 160, 160);
+    border-radius: 10px;
+    user-select: none;
+    cursor: pointer;
+    background-color:lightgray;
+    padding: 20px;
+}
+.itemBox{
+    display: flex;
+    flex-direction: column;  
+    width: 50%;
+    border: 2px solid rgb(160, 160, 160);
+    border-radius: 10px;
+}
+.itemBox > h3{
+    
+    border: 2px solid rgb(160, 160, 160);
+    border-radius: 10px;
+}
+.itemBox > div{
+    margin-top: 2.5%;
+    border: 2px solid rgb(160, 160, 160);
+    border-radius: 10px;
+}
+.choiceBox{
+    display: flex;
+    flex-direction: column;
+    height: 62.5%;
+    align-content: space-around;
+    
+}
+.choiceBox > div{
+    border: 2px solid rgb(160, 160, 160);
+    border-radius: 10px;
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 10px;
+}
