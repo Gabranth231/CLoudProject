@@ -6,11 +6,15 @@ function NavBar() {
         <header className={classes.navBar}>
             <nav>
                 <ul>
-                    <li>
+                    <li className={classes.homeButton}>
                         <Link to="/">Home Screen</Link>
                     </li>
-                    <li>
-                        <Link to="/NewPage">New Page</Link>
+                    <li className={classes.dropdown}>
+                        <div className={classes.dropdownButton}>Pages</div>
+                        <div class={classes.dropdownContent}>
+                            <Link to="/CataloguePage">Catalogue</Link>
+                            <Link to="/CartPage">Cart</Link>
+                        </div>
                     </li>
                 </ul>
             </nav>

@@ -20,19 +20,20 @@
   margin-left: 20px;
 }
 
-.navBar li {
-  height: 3rem;
-  width: max-content;
-  padding: 0.6rem;
-}
-
 .navBar a {
   color: #fff;
   font-size: 1.2rem;
   text-decoration: none;
 }
 
-.navBar li:hover {
+.homeButton {
+  height: 3rem;
+  width: max-content;
+  padding: 0.6rem;
+  margin: auto;
+}
+
+.homeButton:hover {
   background-color: rgb(23, 109, 196);
 }
 
@@ -56,3 +57,57 @@
   color: #fff;
   margin: auto;
 }
+
+.dropdownButton {
+  background-color: dodgerblue;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin: auto;
+  height: 3rem;
+  padding: 0.6rem;
+}
+
+.dropdownButton:hover {
+  background-color: rgb(23, 109, 196);
+}
+
+.dropdownContent a:hover {
+  background-color: rgb(23, 109, 196);
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: rgb(23, 109, 196);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: dodgerblue;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdownContent a {
+  display: flex;
+  padding: 0.6rem;
+}
+
+.dropdownContent a:hover {
+  background-color: rgb(23, 109, 196);
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
