@@ -1,9 +1,10 @@
 import classes from "./CataloguePage.module.css"
 import { useState } from "react";
 
-function CataloguePage() {
+function CataloguePage(props) {
     const [itemChoice, setItem] = useState("Select Clothing Item");
 
+    const [cartCount, setCartCount] = useState(props.globalObject.getNum());
     const [sizePopup, setSizePopup] = useState(false);
     const [sizeMenu, setSizeMenu] = useState("");
     const [colourPopup, setColourPopup] = useState(false);
@@ -39,6 +40,11 @@ function CataloguePage() {
                 <div onClick={() => checkAmount()}>Remove</div>
             </div>
         )
+    }
+
+    function setCount() {
+        setCartCount(cartCount + 1);
+        props.globalObject.setNum(cartCount);
     }
 
     function hideMenus() {
@@ -104,7 +110,7 @@ function CataloguePage() {
                         {AmountPopupJsx}
                     </div>
                 </div>
-                <div onClick={() => { submitHandler(); resetWidget() }}>Submit Clothing Item</div>
+                <div onClick={() => { submitHandler(); resetWidget(); setCount() }}>Submit Clothing Item</div>
             </div>
         </div>
     )

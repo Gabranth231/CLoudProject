@@ -1,26 +1,20 @@
 import classes from './HomePageScreen.module.css';
-import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 function HomePageScreen() {
-  const [widgetCount, setWidget] = useState(0);
-  function checkCount(){
-      widgetCount > 0 ? setWidget(widgetCount-1) : setWidget(widgetCount);
-  }
   return (
     <div className={classes.mainDiv}>
-      <div className={classes.counter}>
-        Widget count is {widgetCount}
-      </div>
-
-      <div className={classes.buttons}>
-        <div>
-          <div onClick={() => setWidget(widgetCount + 1)}>Add Widget</div>
+        <h1>Welcome to shopping</h1>
+        <div className={classes.sections}>
+          <Link to="/CataloguePage">
+            <img className={classes.img} src="https://www.shannonspringshotel.com/wp-content/uploads/2020/06/shopping-shannon-springs-2.jpg"></img>
+            Catalogue
+          </Link>
+          <Link to="/CartPage">
+            <img className={classes.img} src="https://www.incimages.com/uploaded_files/image/1920x1080/shopping-cart-pano_13213.jpg"></img>
+            Cart
+          </Link>
         </div>
-
-        <div>
-        <div onClick ={() => checkCount()}>Delete Widget</div>
-        </div>
-      </div>
     </div>
   );
 }
