@@ -8,7 +8,7 @@ function NavBar() {
     let menuPopup = null;
     if(dropDown === true) {
         menuPopup = (
-            <div className={classes.dropdownContent} onMouseLeave={hideMenu}>
+            <div>
                 <Link to="/CataloguePage">Catalogue</Link>
                 <Link to="/CartPage">Cart</Link>
             </div>
@@ -26,8 +26,8 @@ function NavBar() {
                     <li className={classes.homeButton}>
                         <Link to="/">Home Screen</Link>
                     </li>
-                    <li className={classes.dropdownButton}>
-                        <div onMouseEnter={()=>setDropDown(true)} onMouseLeave={hideMenu}>Pages</div>
+                    <li className={classes.dropdownButton} onMouseEnter={()=>setDropDown(true)} onMouseLeave={hideMenu}>
+                        Pages
                         {menuPopup}
                     </li>
                 </ul>
