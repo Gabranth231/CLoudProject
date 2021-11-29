@@ -35,7 +35,7 @@ function App() {
          <CataloguePage globalObject={globalObject}/>
         </Route>  
         <Route path="/CartPage" exact>
-         <CartPage />
+         <CartPage globalObject={globalObject}/>
         </Route>  
       </Switch>
     </div>
