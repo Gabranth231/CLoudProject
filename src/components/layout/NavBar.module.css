@@ -60,36 +60,32 @@
 
 .dropdownButton {
   background-color: dodgerblue;
+  width: max-content;
   color: #fff;
   font-size: 1.2rem;
   cursor: pointer;
   margin: auto;
   height: 3rem;
   padding: 0.6rem;
-  max-width: 100px;
 }
 
 .dropdownButton:hover {
   background-color: rgb(23, 109, 196);
 }
 
-.dropdownContent a:hover {
-  background-color: rgb(23, 109, 196);
-}
-
-.dropdownContent {
+.dropdownButton > div {
   position: relative;
   background-color: dodgerblue;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  margin-top: auto;
+  margin-top: 0.6rem;
 }
 
-.dropdownContent a {
+.dropdownButton > div a {
   display: flex;
   padding: 0.6rem;
 }
 
-.dropdownContent a:hover {
+.dropdownButton > div a:hover {
   background-color: rgb(23, 109, 196);
 }
