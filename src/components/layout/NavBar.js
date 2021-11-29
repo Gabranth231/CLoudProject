@@ -2,7 +2,7 @@ import classes from "./NavBar.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function NavBar() {
+function NavBar(props) {
     const [dropDown, setDropDown] = useState(false);
     
     let menuPopup = null;
@@ -35,7 +35,7 @@ function NavBar() {
             <Link className={classes.counter} to="/CartPage">
                 <img src="https://www.iconpacks.net/icons/2/free-shopping-cart-icon-3045-thumb.png" alt=""></img>
                 <div>
-                    0
+                    {props.globalObject.getNum()}
                 </div>
             </Link>
         </header>
