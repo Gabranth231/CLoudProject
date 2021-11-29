@@ -3,57 +3,109 @@ import { useState } from "react";
 
 function CataloguePage() {
     const [itemChoice, setItem] = useState("Select Clothing Item");
-    const [size, setSize] = useState("Select Size");
-    const [colour, setColour] = useState("Select Colour");
+
+    const [sizePopup, setSizePopup] = useState(false);
+    const [sizeMenu, setSizeMenu] = useState("");
+    const [colourPopup, setColourPopup] = useState(false);
+    const [colourMenu, setColourMenu] = useState("");
+    const [amountPopup, setAmountPopup] = useState(false);
     const [amount, setAmount] = useState(1);
 
-    function checkAmount(){
-        amount > 1 ? setAmount(amount-1) : setAmount(amount);
+    let SizePopupJsx = null;
+    if (sizePopup === true) {
+        SizePopupJsx = (
+            <div className={classes.dropdownContent}>
+                <div onClick={() => { hideMenus(); setSizeMenu('Small') }}>Small</div>
+                <div onClick={() => { hideMenus(); setSizeMenu('Medium') }}>Medium</div>
+                <div onClick={() => { hideMenus(); setSizeMenu('Large') }}>Large</div>
+            </div>
+        )
+    }
+    let ColourPopupJsx = null;
+    if (colourPopup === true) {
+        ColourPopupJsx = (
+            <div className={classes.dropdownContent}>
+                <div onClick={() => { hideMenus(); setColourMenu('White') }}>White</div>
+                <div onClick={() => { hideMenus(); setColourMenu('Black') }}>Black</div>
+                <div onClick={() => { hideMenus(); setColourMenu('Blue') }}>Blue</div>
+            </div>
+        )
+    }
+    let AmountPopupJsx = null;
+    if (amountPopup === true) {
+        AmountPopupJsx = (
+            <div className={classes.dropdownContent} onMouseLeave={() => setAmountPopup(false)}>
+                <div onClick={() => setAmount(amount + 1)}>Add</div>
+                <div onClick={() => checkAmount()}>Remove</div>
+            </div>
+        )
     }
 
-
+    function hideMenus() {
+        setSizePopup(false);
+        setColourPopup(false);
+        setAmountPopup(false);
+    }
     function resetWidget() {
-        setSize("Select Size")
-        setItem("Select Clothing Item")
-        setColour("Select Colour")
-        setAmount("1")
+        setItem("Select Clothing item");
+        setSizeMenu("");
+        setColourMenu("");
+        setAmount(1);
     }
+
+    function checkAmount() {
+        amount > 1 ? setAmount(amount - 1) : setAmount(amount);
+    }
+    function submitHandler() {
+        const enteredItem = itemChoice;
+        const enteredSize = sizeMenu;
+        const enteredColour = colourMenu;
+        const enteredAmount = amount;
+
+        const clothingData = {
+            Item: enteredItem,
+            Size: enteredSize,
+            Colour: enteredColour,
+            Amount: enteredAmount,
+        };
+
+        fetch(
+            'https://reactteamproject-default-rtdb.firebaseio.com/cart.json',
+            {
+                method: 'POST',
+                body: JSON.stringify(clothingData),
+                headers: {
+                    'Content-Type': 'Application/json'
+                }
+            }
+        );
+    }
+
     return (
-        <div className = {classes.mainDiv}>
-           <div className = {classes.apparelSelect}>
+        <div className={classes.mainDiv}>
+            <div className={classes.apparelSelect}>
                 <div onClick={() => setItem("T-Shirt")}>T-Shirt</div>
                 <div onClick={() => setItem("Jeans")}>Jeans</div>
                 <div onClick={() => setItem("Other")}>Other</div>
-           </div>
-           <div className={classes.itemBox}>
-               <h3>{itemChoice}</h3>
-               <div className = {classes.choiceBox}>
-                    <div className={classes.dropdown}>
-                        {size}
-                        <div className={classes.dropdownContent}>
-                            <div onClick={()=>setSize("Small")}>Small</div>
-                            <div onClick={()=>setSize("Medium")}>Medium</div>
-                            <div onClick={()=>setSize("Large")}>Large</div>
-                        </div>
+            </div>
+            <div className={classes.itemBox}>
+                <h3>{itemChoice}</h3>
+                <div className={classes.choiceBox}>
+                    <div>
+                        <div className={classes.dropdown} onClick={() => setSizePopup(true)}>Select Size: {sizeMenu}</div>
+                        {SizePopupJsx}
                     </div>
-                    <div className={classes.dropdown}>
-                        {colour}
-                        <div className={classes.dropdownContent}>
-                            <div onClick={()=>setColour("Black")}>Black</div>
-                            <div onClick={()=>setColour("White")}>White</div>
-                            <div onClick={()=>setColour("Blue")}>Blue</div>
-                        </div>
+                    <div>
+                        <div className={classes.dropdown} onClick={() => setColourPopup(true)}>Select Colour: {colourMenu}</div>
+                        {ColourPopupJsx}
                     </div>
-                    <div className={classes.dropdown}>
-                        Amount: {amount}
-                        <div className={classes.dropdownContent}>
-                            <div onClick={()=>setAmount(amount + 1)}>Add</div>
-                            <div onClick={()=>checkAmount()}>Remove</div>
-                        </div>
+                    <div>
+                        <div className={classes.dropdown} onMouseEnter={() => setAmountPopup(true)}>Select Amount: {amount}</div>
+                        {AmountPopupJsx}
                     </div>
-               </div>
-               <div onClick={() => resetWidget()}>Submit Clothing Item</div>
-           </div>
+                </div>
+                <div onClick={() => { submitHandler(); resetWidget() }}>Submit Clothing Item</div>
+            </div>
         </div>
     )
 }
